@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap
+        PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+        "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<!--
+  LinkID int(11) NOT NULL auto_increment,
+LinkName varchar(200) NOT NULL default '',
+LinkURL varchar(250) NOT NULL default '',
+Viewable tinyint(4) NOT NULL default '0',
+Category varchar(50) NOT NULL default '',
+PRIMARY KEY  (LinkID)
+-->
+
+<sqlMap namespace="Link">
+
+    <typeAlias alias="Link" type="com.yalestar.model.Link"/>
+
+    <select id="getAllLinks" resultClass="Link">
+        select * from links where Viewable =1;
+    </select>
+
+
+    <select id="getLinkByID" parameterClass="int" resultClass="Link">
+        select * from links where LinkID = #linkid#
+    </select>
+
+    <select id="getLinksByCategory" parameterClass="String" resultClass="java.util.ArrayList">
+        select * from links where category=#catString#;
+
+
+    </select>
+    <!--<insert id="insertLink" parameterClass="Link">-->
+        <!--insert into yalestar.links-->
+        <!--(Author, Names, AddDate)-->
+        <!--values-->
+        <!--(#author#, #names#, #addDate#)-->
+    <!--</insert>-->
+
+
+    <update id="updateLink" parameterClass="Link">
+        update links set ## = ## where ## = ##
+    </update>
+
+    <delete id="deleteLink" parameterClass="int">
+        delete from links where UID = #uid#
+    </delete>
+
+</sqlMap>

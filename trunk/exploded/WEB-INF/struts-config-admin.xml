@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+        "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+
+    <form-beans>
+        <form-bean name="newEntry"
+                   type="com.yalestar.controller.form.NewEntryForm"/>
+
+        <form-bean name="editEntry"
+                   type="com.yalestar.controller.form.EditEntryForm"/>
+
+        <form-bean name="newComment"
+                   type="com.yalestar.controller.form.NewCommentForm"/>
+    </form-beans>
+
+    <global-forwards>
+        <forward name="/main" path="/egg/showMain"/>
+        <forward name="/editEntry" path="/egg/editEntryAction"/>
+        <forward name="/addComment" path="/egg/addComment"/>
+        <forward name="/deletedEntry" path="/manageEntries"/>
+    </global-forwards>
+
+    <action-mappings>
+
+
+        <action path="/fetchArchive"
+                scope="request"
+                validate="false"
+                parameter="year"
+                type="com.yalestar.controller.action.FetchArchiveAction">
+            <forward name="success" redirect="true" path="/showArchives.jsp"/>
+        </action>
+
+
+        <action path="/manageEntries"
+                scope="request"
+                validate="false"
+                type="com.yalestar.controller.action.ManageEntriesAction">
+            <forward name="success" path="/_admin/manageEntries.jsp"/>
+        </action>
+
+        <action path="/editEntryAction"
+                scope="request"
+                validate="false"
+                parameter="step"
+                name="editEntry"
+                type="com.yalestar.controller.action.EditEntryAction"
+                input="/_admin/manageEntries.jsp">
+            <forward name="editEntryForm" path="/_admin/editEntry.jsp"/>
+        </action>
+
+        <action path="/editTitle"
+                scope="request"
+                input="_admin/editTitle.jsp" name="editTitle"
+                validate="false"
+                type="com.yalestar.controller.action.EditTitleAction">
+            <forward name="editedTitle" path="/_admin/adminIndex.jsp"/>
+        </action>
+
+        <action path="/logViewer"
+                scope="request"
+                validate="false"
+                type="com.yalestar.controller.action.LogViewerAction">
+            <forward name="success" path="/_admin/logViewer.jsp"/>
+        </action>
+
+    </action-mappings>
+
+    <message-resources parameter="com.yalestar.util.MessageResources"/>
+
+
+</struts-config>

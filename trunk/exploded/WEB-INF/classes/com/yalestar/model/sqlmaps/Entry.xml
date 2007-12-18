@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap
+        PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+        "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<!--
+  ContentID int(11) NOT NULL auto_increment,
+  ID varchar(32) default NULL,
+  ContentDate date default NULL,
+  Content longtext,
+  Viewable tinyint(11) NOT NULL default '0',
+  Title varchar(250) NOT NULL default '',
+  PRIMARY KEY  (ContentID)
+-->
+<sqlMap namespace="Entry">
+
+    <typeAlias alias="Entry" type="com.yalestar.model.Entry"/>
+    <typeAlias alias="Comment" type="com.yalestar.model.Comment"/>
+
+    <select id="selectAllEntries" resultClass="Entry"
+            parameterClass="java.lang.Integer">
+        <![CDATA[ 
+        SELECT
+        ContentID as contentID,
+        ID as id,
+        ContentDate as contentDate,
+        replace(content, '\r\n', '<br/>')as content,
+        Viewable as viewable,
+        Title as title
+        FROM entries
+        WHERE Viewable = 1
+        ORDER BY ContentDate DESC
+        LIMIT #limit#
+        ]]>
+    </select>
+
+
+    <select id="getEntryByID" parameterClass="java.lang.String" resultClass="Entry" >
+        SELECT
+        ContentID as contentID,
+        ID as id,
+        ContentDate as contentDate,
+        content as content,
+        Viewable as viewable,
+        Title as title
+        FROM entries
+        WHERE ContentID = #contentID#
+        LIMIT 1
+    </select>
+
+    <select id="getArchives" resultClass="Entry">
+        SELECT
+        ContentID as contentID,
+        ID as id,
+        ContentDate as contentDate,
+        Viewable as viewable,
+        Title as title
+        FROM entries
+        WHERE Viewable = 1
+        ORDER BY ContentDate DESC
+    </select>
+
+    <select id="getArchivesByYear" parameterClass="java.lang.String" resultClass="Entry">
+        SELECT
+        ContentID as contentID,
+        ID as id,
+        ContentDate as contentDate,
+        Viewable as viewable,
+        Title as title
+        FROM entries
+        WHERE Viewable = 1
+        AND YEAR(ContentDate)= #year#
+        ORDER BY ContentDate DESC
+    </select>
+
+
+    <delete id="deleteEntry" parameterClass="java.lang.Integer">
+        delete from entries where id = #id#
+    </delete>
+
+    <select id="getCommentsForEntry" resultClass="Comment"
+            parameterClass="java.lang.String">
+        select * from comments
+        where postID = #postID#
+
+    </select>
+
+    <update id="updateEntry" parameterClass="Entry">
+
+        update entries set
+        contentDate = #contentDate#
+        content = #content#
+        viewable = #viewable#
+        where ContentID = #contentID#
+        and ID = #ID#
+
+    </update>
+
+</sqlMap>

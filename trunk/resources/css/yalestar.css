@@ -1,0 +1,334 @@
+body {
+    padding: 0;
+    margin: 0;
+    font-family: "Bitstream Vera Sans", sans-serif;
+    font-size: 86%;
+    background-color: #fff;
+}
+
+.entryDate {
+    font-family: "Bitstream Vera Sans", sans-serif;
+    font-size: 85%;
+    font-weight: bold;
+}
+
+.entryTitle {
+    font-family: "Bitstream Vera Sans", sans-serif;
+    padding: 5px;
+    margin-right: 350px;
+    margin-bottom: .8em;
+    border: 2px solid #ddd;
+    font-size: 130%;
+    color: #3F4C6B;
+    background-color: #E5E5E5;
+}
+
+.headerRight {
+    position: relative;
+    border: 1px;
+    top: 0.8em;
+    left: 10.9em;
+    font-size: 75%;
+    font-weight: normal;
+}
+
+p.content {
+    line-height: 1.3em;
+    margin-right: 21em;
+    padding-left: 24px;
+    padding-right: 1px;
+    font-size: 11pt;
+    font-family: "Georgia", "Times", serif;
+}
+
+.hrfront {
+    background-color: #eeeeee;
+    height: 0.2em;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-top-color: #cccccc;
+    border-right-color: #cccccc;
+    border-bottom-color: #cccccc;
+    border-left-color: #cccccc;
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 1px;
+    border-left-width: 0;
+    margin-top: 0.5em;
+    margin-right: 350px;
+    margin-bottom: 0.5em;
+    margin-left: 15px;
+}
+
+#wrapper {
+    margin: 0;
+    background-color: transparent;
+    padding: 0;
+    position: relative;
+}
+
+#top2 {
+    padding: 0;
+    clear: both;
+    background-color: #3F4C6B;
+    padding-top: 2.4em;
+}
+
+#navigation-bar {
+    background-color: #222;
+}
+
+#navbar {
+    text-align: center;
+}
+
+#navbar ul {
+    list-style: none;
+    line-height: 2em;
+    padding-left: 0;
+    margin-left: 0;
+    text-transform: uppercase;
+}
+
+#navbar li {
+    display: inline;
+}
+
+#navbar li a {
+    margin-right: 0.5em;
+    color: white;
+    font-weight: bold;
+    font-size: 1.0em;
+    padding: 0.2em 0.3em 0.2em 0.3em;
+    text-decoration: none; /*background-color: #555;*/
+}
+
+#navbar li a:hover {
+    background-color: transparent;
+    color: orange;
+    text-decoration: none;
+}
+
+#banner {
+    text-align: center;
+    margin: 0 auto 0 auto;
+    max-width: 75em;
+    padding: 1em;
+    height: 7em;
+}
+
+#banner h1 {
+    padding-top: 0.1em;
+    font-size: 130%;
+    color: #fff;
+}
+
+#links {
+    margin: 0;
+    padding: 0;
+    margin-left: 100px;
+    margin-right: 100px;
+    list-style: none;
+}
+
+#links li {
+    display: inline;
+    border-left: 1px solid #fff;
+    padding-left: 0.7em;
+    padding-right: 0.5em;
+}
+
+#links li:first-child {
+    border-left: 0;
+    padding-left: 0;
+}
+
+#links li a {
+    color: #fff !important;
+    font-weight: bold;
+}
+
+#gnulogo {
+    float: left;
+    margin-top: -3em;
+}
+
+#dbdlogo {
+    float: right;
+    margin-top: -3em;
+}
+
+#header {
+    float: left;
+    width: 100%;
+    font-size: 93%;
+    line-height: normal;
+}
+
+#header ul {
+    margin: 0;
+    padding: 10px 10px 0;
+    list-style: none;
+}
+
+#header li {
+    float: left;
+    margin: 0;
+    padding: 0 0 0 9px;
+}
+
+#header a {
+    float: left;
+    display: block;
+    padding: 5px 15px 4px 6px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #765;
+}
+
+#header a:hover {
+    color: #333;
+}
+
+#header #current {
+    background-repeat: no-repeat;
+}
+
+#header #current a {
+    background-repeat: no-repeat;
+    color: #333;
+    padding-bottom: 5px;
+}
+
+#columns, #footer {
+    clear: both;
+    padding-left: 1em;
+    padding-right: 1em;
+    margin: 1em auto 0 auto;
+    max-width: 75em;
+}
+
+#columns {
+    position: relative;
+}
+
+#footer {
+    background-color: #e5e5e5;
+    border-top: 2px solid #ddd;
+    padding: 3px;
+    top: 104px;
+}
+
+#sidebar {
+    position: absolute;
+    top: -1em;
+    right: 1em;
+    margin-top: 1em;
+    font-size: 0.9em;
+    float: right; /*margin-left: 1.5em;*/
+    margin-bottom: 1em;
+    line-height: 1.6em;
+    padding: 1em;
+    background-color: #e5e5e5;
+    border: 3px solid #ddd;
+}
+
+#sidebar a {
+    text-decoration: none;
+}
+
+#sidebar, #translations, roundedBox {
+
+    -moz-border-radius: 1em;
+
+}
+
+#sidebar  li a:hover {
+    text-decoration: underline;
+}
+
+#sidebar a:visited {
+    text-decoration: none;
+}
+
+#sidebar h3 {
+    text-align: center;
+    margin-top: 0;
+    text-transform: uppercase;
+    font-size: 1em;
+}
+
+#sidebar ul {
+    margin-bottom: 1.2em;
+    padding-left: 1em;
+    margin-left: 0;
+    list-style-type: circle;
+
+}
+
+#sidebar li {
+    font-family: "Bitstream Vera Sans", sans-serif;
+    font-size: 103%;
+}
+
+#content {
+    margin-right: 21em;
+    padding-left: 4px;
+    padding-right: 1px;
+    font-size: 12pt;
+    font-family: "Times", "Georgia", serif;
+}
+
+#footer {
+    margin: auto;
+    position: relative;
+}
+
+.rowOfBoxes {
+    clear: both;
+}
+
+.noBorderOnLeft {
+    border-left: none;
+}
+
+.dividingBorderAbove {
+    border-top: 1px solid rgb( 204, 204, 204 );
+}
+
+#magicwrapper {
+    background-color: lime;
+    width: 65em;
+    margin: 0 auto 0 auto;
+}
+
+#validator {
+    position: absolute;
+    bottom: 0;
+    right: 1em;
+}
+
+h2, h3 {
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.infobox {
+    background-color: #ffb;
+    padding: 0.4em;
+    border: 1px solid #eee;
+}
+
+.infobox h4, .infobox p {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    border: 0;
+    float: inherit;
+}
+
+

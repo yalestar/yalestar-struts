@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap
+        PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+        "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Other">
+
+    <typeAlias alias="Article" type="com.yalestar.model.Article"/>
+
+    <select id="getArticles" resultClass="Article">
+        select
+        UID as UID,
+        Content as Content,
+        AddDate as AddDate
+        from articles
+        order by AddDate DESC
+    </select>
+
+    <select id="getArticle" parameterClass="java.lang.Integer">
+        select
+        UID as UID,
+        Content as Content,
+        AddDate as AddDate
+        from articles
+        where UID = #UID#
+    </select>
+
+    <select id="getBios" resultClass="Article">
+
+    </select>
+
+    <select id="getBio" parameterClass="java.lang.Integer">
+
+    </select>
+
+    <insert id="insertArticle">
+
+    </insert>
+    <update id="updateArticle">
+
+    </update>
+    <delete id="deleteArticle">
+
+    </delete>
+</sqlMap>

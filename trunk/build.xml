@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="yalestar20" default="compile" basedir=".">
+
+    <property name="tomcat.dir" location="C:/apps/tomcat55"/>
+    <property name="webapps.dir" location="C:/apps/tomcat55/webapps"/>
+    <property name="webinf.dir" location="WEB-INF"/>
+    <property name="classes.dir" location="WEB-INF/classes"/>
+    <property name="j2ee.lib.dir" location="${tomcat.dir}/common/lib"/>
+    <property name="src.dir" location="src"/>
+    <property name="web.src.dir" location="resources"/>
+    <property name="web.lib.dir" location="WEB-INF/lib"/>
+    <property name="exploded.dir" location="exploded"/>
+
+    <property name="warfile" location="${webapps.dir}/yalestar20.war"/>
+
+    <path id="classpath">
+        <pathelement path="${j2ee.lib.dir}/servlet-api.jar"/>
+        <fileset dir="${web.lib.dir}">
+            <include name="**/*.jar"/>
+        </fileset>
+    </path>
+
+    <target name="clean">
+        <delete dir="${classes.dir}"/>
+        <delete dir="${exploded.dir}"/>
+    </target>
+
+    <target name="compile" depends="-init">
+        <mkdir dir="${classes.dir}"/>
+        <copy todir="${classes.dir}">
+            <fileset dir="${src.dir}" includes="**/*.properties"/>
+        </copy>
+        <copy todir="${exploded.dir}">
+            <fileset dir="${web.src.dir}"/>
+        </copy>
+        <copy todir="${exploded.dir}/WEB-INF">
+            <fileset dir="${webinf.dir}"/>
+        </copy>
+        <javac srcdir="${src.dir}" destdir="${classes.dir}">
+
+            <classpath refid="classpath"/>
+        </javac>
+    </target>
+
+    <target name="war" depends="compile">
+        <delete file="${warfile}"/>
+        <war basedir="${exploded.dir}"
+             destfile="${warfile}"
+             compress="true"
+             webxml="WEB-INF/web.xml"
+             excludes="**/web.xml">
+            <classes dir="${classes.dir}"/>
+        </war>
+    </target>
+
+    <target name="-init">
+        <tstamp>
+            <format property="TODAY" pattern="dd MMM yyyy HH.mm"
+                    locale="en_US"/>
+        </tstamp>
+    </target>
+
+</project>
