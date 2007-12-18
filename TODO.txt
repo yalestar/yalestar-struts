@@ -1,0 +1,7 @@
+incorporate validation framework
+
+look into AJAXian comment form that pops up inline
+
+datepicker for admin page
+
+add some <html:errors />
