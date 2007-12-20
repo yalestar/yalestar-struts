@@ -5,8 +5,7 @@
         "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 
 <struts-config>
-
-    <form-beans>
+        <form-beans>
         <form-bean name="newEntry"
                    type="com.yalestar.controller.form.NewEntryForm"/>
 
@@ -15,8 +14,10 @@
 
         <form-bean name="newComment"
                    type="com.yalestar.controller.form.NewCommentForm"/>
+        <form-bean name="loginForm"
+                   type="com.yalestar.controller.form.LoginForm"/>
     </form-beans>
-
+    
     <global-forwards>
         <forward name="/main" path="/egg/showMain"/>
         <forward name="/editEntry" path="/egg/editEntryAction"/>
