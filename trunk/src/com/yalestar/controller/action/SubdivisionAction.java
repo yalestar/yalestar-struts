@@ -1,6 +1,6 @@
 package com.yalestar.controller.action;
 
-import com.yalestar.model.Subdivision;
+//import com.yalestar.model.Subdivision;
 import com.yalestar.util.ForwardConstants;
 import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
@@ -17,8 +17,8 @@ public class SubdivisionAction extends Action {
                                  HttpServletResponse response)
             throws Exception {
 
-        Subdivision sub = Subdivision.getNew();
-        request.setAttribute("subdivision", sub);
-        return mapping.findForward(ForwardConstants.SUCCESS);
+//        Subdivision sub = Subdivision.getNew();
+//        request.setAttribute("subdivision", sub);
+      return mapping.findForward(ForwardConstants.SUCCESS);
     }
 }

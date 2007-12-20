@@ -41,6 +41,8 @@ public class Configurator extends HttpServlet {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        } else {
+            System.out.println("Unable to load properties file " + cfgFile);
         }
     }
 
