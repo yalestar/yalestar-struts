@@ -55,9 +55,37 @@
 
     <target name="-init">
         <tstamp>
-            <format property="TODAY" pattern="dd MMM yyyy HH.mm"
-                    locale="en_US"/>
+            <format property="TODAY" 
+                pattern="dd MMM yyyy HH.mm"
+                locale="en_US"/>
         </tstamp>
     </target>
 
+    <target name="zip" depends="backup">
+        <zip destfile="yalestar20-${DSTAMP}_${TSTAMP}.zip" 
+            basedir="."
+            excludes="classes/**, WEB-INF/**, *.zip, exploded/**, **/*.jar, **/*.exe"
+        />
+    </target>
+    <target name="backup" depends="-init">
+        <exec dir="" executable="c:\apps\mysql\bin\mysqldump.exe">
+            <arg value="--user=root" />
+            <arg value="--password=" />
+            <arg value="--add-drop-table" />
+            <arg value="--result-file=ystar-${DSTAMP}_${TSTAMP}.sql" />   
+            <arg value="yales3_yalestar" />
+        </exec>
+    </target>
+    
+    <target name="ftp">
+        <ftp action="put"
+            server="ftp.yalestar.com"
+            userid="yales3"
+            password="WabNag0"
+            remotedir="/STORAGE">
+                <fileset dir=".">
+                    <include name="*.zip"/>
+                </fileset>
+        </ftp>
+    </target>
 </project>
